@@ -1,10 +1,32 @@
 <script>
-  import firebase from "firebase/app";
+  import Login from "src/components/login.svelte";
   import { onMount } from "svelte";
+  import firebase from "firebase/app";
+  import { user } from "rxfire/auth";
+  import { authenticated } from "src/store";
 
+  let loaded = false;
+  let auth;
   onMount(() => {
-    const db = firebase.firestore();
-    console.log(db);
+    auth = firebase.auth();
+    user(auth).subscribe(u => {
+      if (u) {
+        if (u.uid === process.env.fbMasterAccount) {
+          authenticated.set({
+            auth: true,
+            type: "master"
+          });
+        } else if (u.uid === process.env.fbMinionAccount) {
+          authenticated.set({
+            auth: true,
+            type: "minion"
+          });
+        } else {
+          authenticated.set(false);
+        }
+      }
+      loaded = true;
+    });
   });
 </script>
 
@@ -14,4 +36,10 @@
   </style>
 </svelte:head>
 
-<slot />
+{#if $authenticated}
+  <slot />
+{:else if loaded}
+  <Login />
+{:else}
+  <p>Hleður...</p>
+{/if}

@@ -20,6 +20,8 @@ const fbConfigReplacement = {
   "process.env.fbStorageBucket": JSON.stringify(process.env.FB_STORAGE_BUCKET),
   "process.env.fbAppId": JSON.stringify(process.env.FB_APP_ID),
   "process.env.fbMeasurementId": JSON.stringify(process.env.FB_MEASUREMENT_ID),
+  "process.env.fbMasterAccount": JSON.stringify(process.env.FB_MASTER_ACCOUNT),
+  "process.env.fbMinionAccount": JSON.stringify(process.env.FB_MINION_ACCOUNT),
 };
 
 const scssOptions = {
