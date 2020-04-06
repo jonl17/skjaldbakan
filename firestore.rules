@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+		// MOVIES
+    match /movies/{movie} {
+    // the public can only see accepted movies, but master & minion accounts can see all movies
+    	allow read: if true;
+    }
+    match /movies/{movie} {
+      allow create: if request.auth.uid != null;
+
+      allow update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.master == true;
+
+      allow delete: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.master == true;
+    }
+    
+    // APPLICANTS
+    match /applicants/{applicant} {
+      allow read: if true;
+    }
+    match /applicants/{applicant} {
+      allow create: if request.auth.uid != null;
+
+      allow update: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.master == true;
+
+      allow delete: if get(/databases/$(database)/documents/users/$(request.auth.uid)).data.master == true;
+    }
+    
+    // USERS
+    match /users/{user} {
+      allow read: if request.auth.uid != null;
+    	allow write: if false;
+    }
+    
+    // POSTLIST
+    match /postlist/{email} {
+      allow read: if true;
+    	allow write: if true;
+    }
+  }
+}
