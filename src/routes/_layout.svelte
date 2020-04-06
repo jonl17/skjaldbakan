@@ -1,5 +1,5 @@
 <script>
-  import Login from "src/components/login.svelte";
+  import Login from "src/components/Auth/login.svelte";
   import { onMount } from "svelte";
   import firebase from "firebase/app";
   import { user } from "rxfire/auth";
