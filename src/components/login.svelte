@@ -10,7 +10,7 @@
 
   const handleSubmit = e => {
     e.preventDefault();
-    auth.signInWithEmailAndPassword($user.email, $user.password).catch(err => {
+      auth.signInWithEmailAndPassword($user.email, $user.password).catch(err => {
       console.log(err.code);
     });
   };
@@ -29,7 +29,9 @@
   }
 </style>
 
+
 <form on:submit={handleSubmit} class="form">
+<h1 class="title">Innskráning</h1>
   <div class="field">
     <div class="control">
       <input

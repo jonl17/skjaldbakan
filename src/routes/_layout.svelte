@@ -4,6 +4,7 @@
   import firebase from "firebase/app";
   import { user } from "rxfire/auth";
   import { authenticated } from "src/store";
+  import Header from "src/components/header.svelte";
 
   let loaded = false;
   let auth;
@@ -36,6 +37,7 @@
   </style>
 </svelte:head>
 
+<Header />
 {#if $authenticated}
   <slot />
 {:else if loaded}
