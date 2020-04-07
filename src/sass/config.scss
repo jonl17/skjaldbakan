@@ -1,6 +1,9 @@
 @charset "utf-8";
 
-$primary: #bf4545;
 $red: #bf4545;
+$green: #BCDCBA;
+
+$primary: $red;
+$info: $green;
 
 @import "../../node_modules/bulma/bulma.sass";

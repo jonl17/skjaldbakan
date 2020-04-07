@@ -1,5 +1,5 @@
 <script>
-  import Logout from "src/components/Auth/signOut.svelte";
+  import Logout from "../components/Auth/signOut.svelte";
   import { COLORS } from "src/constants";
 </script>
 

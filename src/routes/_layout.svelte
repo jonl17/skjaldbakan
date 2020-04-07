@@ -5,6 +5,7 @@
   import { user } from "rxfire/auth";
   import { authenticated } from "src/store";
   import Header from "src/components/header.svelte";
+  import PageWrap from "src/components/pageWrap.svelte";
 
   let loaded = false;
   let auth;
@@ -15,12 +16,14 @@
         if (u.uid === process.env.fbMasterAccount) {
           authenticated.set({
             auth: true,
-            type: "master"
+            type: "master",
+            u
           });
         } else if (u.uid === process.env.fbMinionAccount) {
           authenticated.set({
             auth: true,
-            type: "minion"
+            type: "minion",
+            u
           });
         } else {
           authenticated.set(false);
@@ -39,7 +42,9 @@
 
 <Header />
 {#if $authenticated}
-  <slot />
+  <PageWrap>
+    <slot />
+  </PageWrap>
 {:else if loaded}
   <Login />
 {:else}
