@@ -1,5 +1,4 @@
 <script>
-  import { user } from "src/store";
   import firebase from "firebase/app";
   import { onMount } from "svelte";
 
@@ -8,9 +7,14 @@
     auth = firebase.auth();
   });
 
+  let user = {
+    email: "",
+    password: ""
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
-      auth.signInWithEmailAndPassword($user.email, $user.password).catch(err => {
+    auth.signInWithEmailAndPassword(user.email, user.password).catch(err => {
       console.log(err.code);
     });
   };
@@ -29,13 +33,12 @@
   }
 </style>
 
-
 <form on:submit={handleSubmit} class="form">
-<h1 class="title">Innskráning</h1>
+  <h1 class="title">Innskráning</h1>
   <div class="field">
     <div class="control">
       <input
-        bind:value={$user.email}
+        bind:value={user.email}
         class="input"
         type="text"
         placeholder="Netfang"
@@ -45,7 +48,7 @@
   <div class="field">
     <div class="control">
       <input
-        bind:value={$user.password}
+        bind:value={user.password}
         class="input"
         type="password"
         placeholder="Lykilorð"
