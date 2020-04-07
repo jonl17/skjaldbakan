@@ -1,10 +1,10 @@
 <script>
   import { onMount } from "svelte";
-  import { getSingleDocument } from "../../firebase/firestore";
+  import { getSingleApplicant } from "../../firebase/firestore";
   export let userId;
   let applicant;
   onMount(async () => {
-    applicant = await getSingleDocument("applicants", userId);
+    applicant = await getSingleApplicant(userId);
   });
 </script>
 
