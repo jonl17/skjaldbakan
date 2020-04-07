@@ -1,12 +1,16 @@
 <script>
   import { msToDate } from "../../methods";
   import Applicant from "./applicant.svelte";
-  import Image from "./image.svelte";
+  import Image from "../image.svelte";
   export let application;
 </script>
 
 <style>
-
+  figure {
+    max-width: 20rem;
+    box-sizing: border-box;
+    padding: 0 1rem;
+  }
 </style>
 
 <section class="media">

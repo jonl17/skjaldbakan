@@ -8,6 +8,7 @@
 <script>
   import { onMount } from "svelte";
   import { getSingleMovie } from "../../firebase/firestore";
+  import Movie from "./_movie.svelte";
   export let id;
   let movie;
 
@@ -17,5 +18,5 @@
 </script>
 
 {#if movie}
-  <h1 class="title">{movie.titill}</h1>
+  <Movie {movie} />
 {/if}

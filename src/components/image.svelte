@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { getImageSrc } from "../../firebase/storage";
+  import { getImageSrc } from "../firebase/storage";
   export let imageLocation;
 
   let src;
@@ -11,7 +11,7 @@
 
 <style>
   img {
-    max-width: 20rem;
+    width: 100%;
   }
 </style>
 
