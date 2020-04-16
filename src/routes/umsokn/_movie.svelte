@@ -3,7 +3,7 @@
   import Role from "./_role.svelte";
   export let movie;
 
-  console.log(movie.lengd);
+  console.log(movie);
 </script>
 
 <style>
@@ -17,7 +17,9 @@
 </style>
 
 <div class="container">
-  <em>{movie.wip ? 'Verk í vinnslu' : 'Frumsýning'}</em>
+  <em class={movie.wip ? 'red' : 'green'}>
+    {movie.wip ? 'Verk í vinnslu' : 'Frumsýning'}
+  </em>
   <h1 class="title">{movie.titill}</h1>
   <figure>
     <Image imageLocation={movie.imageOneLocation} />
@@ -37,6 +39,6 @@
     <Role role={{ heading: 'Kvikmynd', title: movie.hlekkurKvikmynd }} />
     <Role
       role={{ heading: 'Kvikmynd lykilorð', title: movie.kvikmyndLykilord }} />
-
+    <Role role={{ heading: 'Athugasemd', title: movie.athugasemdir }} />
   </div>
 </div>

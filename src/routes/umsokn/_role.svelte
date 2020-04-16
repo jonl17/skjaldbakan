@@ -2,6 +2,12 @@
   export let role;
 </script>
 
+<style>
+  .subtitle {
+    text-transform: none;
+  }
+</style>
+
 {#if role.title !== '' && role.title}
   <div>
 

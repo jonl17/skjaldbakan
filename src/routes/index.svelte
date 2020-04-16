@@ -5,6 +5,12 @@
   console.log($authenticated);
 </script>
 
+<style>
+  .title {
+    text-align: center;
+  }
+</style>
+
 <h1 class="title">
   Velkomin/n {$authenticated ? $authenticated.u.email : null}
 </h1>
