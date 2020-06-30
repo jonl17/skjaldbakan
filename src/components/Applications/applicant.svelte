@@ -11,5 +11,6 @@
 {#if applicant}
   <div>
     <p>Tengiliður: {applicant.fulltnafn}</p>
+    <p>Netfang: {applicant.netfang}</p>
   </div>
 {/if}
