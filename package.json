@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "compression": "^1.7.1",
-    "firebase": "^7.13.2",
+    "firebase": "^7.15.5",
+    "firebase-tools": "^8.4.3",
     "polka": "next",
     "rxfire": "^3.11.2",
     "rxjs": "^6.5.5",
